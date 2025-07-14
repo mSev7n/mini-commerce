@@ -31,3 +31,6 @@ const products = fs.readdirSync(imageDir).filter(file => /\.(jpg|png|jpeg)$/i.te
 
 fs.writeFileSync(outputPath, JSON.stringify(products, null, 2));
 console.log(`✅ products.json created at ${outputPath}`);
+
+
+// <--mSeven-->

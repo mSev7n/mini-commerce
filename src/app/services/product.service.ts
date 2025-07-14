@@ -49,3 +49,6 @@ export class ProductService {
     return this.products$.value.find(p => p.slug === slug);
   }
 }
+
+// <--mSeven-->
+

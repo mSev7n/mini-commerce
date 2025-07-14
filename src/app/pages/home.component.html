@@ -1,1 +1,27 @@
-<p>home works!</p>
+<!-- Show loading state while fetching products -->
+<div *ngIf="loading" class="text-center py-10 text-gray-500 text-lg">
+    Loading products...
+  </div>
+  
+  <!-- Product Grid -->
+  <div *ngIf="!loading" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+    <a
+      *ngFor="let product of products"
+      [routerLink]="['/product', product.slug]"
+      class="block border rounded-xl overflow-hidden hover:shadow-lg transition-shadow bg-white"
+    >
+      <img
+        [src]="product.image"
+        [alt]="product.title"
+        class="w-full h-64 object-cover"
+        loading="lazy"
+      />
+      <div class="p-4">
+        <h2 class="text-lg font-semibold">{{ product.title }}</h2>
+        <p class="text-sm text-gray-500">{{ product.description }}</p>
+        <p class="text-primary font-bold mt-2">${{ product.price }}</p>
+      </div>
+    </a>
+  </div>
+  
+  <!-- mSeven -->
