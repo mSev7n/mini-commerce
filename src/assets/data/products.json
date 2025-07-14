@@ -3,64 +3,64 @@
     "id": 1,
     "title": "backpack",
     "slug": "backpack",
-    "price": 95.4,
+    "price": 25.11,
     "image": "assets/images/backpack.jpeg",
-    "description": "This is a backpack."
+    "description": "Modern, lightweight backpack for daily commutes, travel, or study sessions."
   },
   {
     "id": 2,
     "title": "bluetooth speaker",
     "slug": "bluetooth-speaker",
-    "price": 74.27,
+    "price": 58.51,
     "image": "assets/images/bluetooth-speaker.jpeg",
-    "description": "This is a bluetooth speaker."
+    "description": "Portable Bluetooth speaker with rich bass and long-lasting battery life."
   },
   {
     "id": 3,
     "title": "desk lamp",
     "slug": "desk-lamp",
-    "price": 101.75,
+    "price": 75.95,
     "image": "assets/images/desk-lamp.jpeg",
-    "description": "This is a desk lamp."
+    "description": "Adjustable LED desk lamp with minimalist design — perfect for work or study."
   },
   {
     "id": 4,
     "title": "gaming mouse",
     "slug": "gaming-mouse",
-    "price": 27.26,
+    "price": 88.85,
     "image": "assets/images/gaming-mouse.jpeg",
-    "description": "This is a gaming mouse."
+    "description": "Ergonomic RGB gaming mouse with lightning-fast precision and sleek design."
   },
   {
     "id": 5,
     "title": "Retro Sneakers",
     "slug": "retro-sneakers",
-    "price": 74.84,
+    "price": 45.94,
     "image": "assets/images/retro-sneakers.jpg",
-    "description": "This is a Retro Sneakers."
+    "description": "Step into classic style with our retro sneakers — durable, comfy, and always in fashion."
   },
   {
     "id": 6,
     "title": "smart watch",
     "slug": "smart-watch",
-    "price": 107.08,
+    "price": 34.35,
     "image": "assets/images/smart-watch.jpeg",
-    "description": "This is a smart watch."
+    "description": "Track your fitness and stay connected on the go with this stylish smart watch."
   },
   {
     "id": 7,
     "title": "water bottle",
     "slug": "water-bottle",
-    "price": 93.56,
+    "price": 82.52,
     "image": "assets/images/water-bottle.jpeg",
-    "description": "This is a water bottle."
+    "description": "Eco-friendly stainless steel bottle that keeps drinks hot or cold for hours."
   },
   {
     "id": 8,
     "title": "wireless headphones",
     "slug": "wireless-headphones",
-    "price": 22.81,
+    "price": 93.65,
     "image": "assets/images/wireless-headphones.jpeg",
-    "description": "This is a wireless headphones."
+    "description": "Experience immersive sound with wireless headphones built for long hours and deep bass."
   }
 ]
