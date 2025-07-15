@@ -15,6 +15,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/cart.component').then(m => m.CartComponent)
   },
   {
+    path: 'checkout',
+    loadComponent: () => import('./pages/checkout.component').then(m => m.CheckoutComponent)
+  },  
+  {
     path: '**',
     redirectTo: ''  // fallback for unknown routes to redirect to homepage
   },

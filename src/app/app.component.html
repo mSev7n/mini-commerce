@@ -1,5 +1,7 @@
 <!-- Floating Cart Button -->
+ <!-- Only show if not on cart page -->
 <button
+  *ngIf="!isCartPage"
   type="button"
   [routerLink]="'/cart'"
   class="fixed top-4 right-4 bg-indigo-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-indigo-700 transition-all z-50 cursor-pointer"
@@ -9,3 +11,5 @@
 
 
 <router-outlet></router-outlet>
+
+<!--mSeven-->

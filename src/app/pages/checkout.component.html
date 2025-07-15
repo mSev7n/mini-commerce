@@ -1,0 +1,31 @@
+<div class="p-4 max-w-3xl mx-auto">
+    <h1 class="text-2xl font-bold mb-4">Checkout</h1>
+  
+    <div *ngIf="cartItems.length === 0" class="text-gray-500">
+      Your cart is empty.
+    </div>
+  
+    <div *ngFor="let item of cartItems" class="mb-4 flex justify-between items-center border-b pb-4">
+      <div>
+        <p class="font-medium">{{ item.product.title }}</p>
+        <p class="text-sm text-gray-500">₦{{ item.product.price }} x {{ item.quantity }}</p>
+      </div>
+      <div class="font-semibold">
+        ₦{{ item.product.price * item.quantity }}
+      </div>
+    </div>
+  
+    <div *ngIf="cartItems.length > 0" class="mt-6 border-t pt-4 text-right">
+      <p class="mb-2">Subtotal: <strong>₦{{ subtotal.toFixed(2) }}</strong></p>
+      <p class="mb-4">Total: <strong>₦{{ total.toFixed(2) }}</strong></p>
+  
+      <button
+        (click)="placeOrder()"
+        class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+      >
+        Place Order
+      </button>
+    </div>
+</div>
+  
+<!--mSeven-->
