@@ -26,27 +26,29 @@ export class ProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // get the 'slug' from the URL (e.g. "retro-sneakers")
-    const slug = this.route.snapshot.paramMap.get('slug');
-
-    if (slug) {
-      // find matching product by slug
-      this.product = this.productService.getProductBySlug(slug);
-
-      // get 4 random related products (excluding current one)
-      this.productService.getProducts().subscribe(data => {
-        this.relatedProducts = data
-          .filter(p => p.slug !== slug)
-          .sort(() => 0.5 - Math.random())
-          .slice(0, 4);
-
+    // Subscribe to route params so this re-runs on every product change
+    this.route.paramMap.subscribe(params => {
+      const slug = params.get('slug');
+  
+      if (slug) {
+        // find matching product by slug
+        this.product = this.productService.getProductBySlug(slug);
+  
+        // get 4 random related products (excluding current one)
+        this.productService.getProducts().subscribe(data => {
+          this.relatedProducts = data
+            .filter(p => p.slug !== slug)
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 4);
+  
+          this.loading = false;
+        });
+      } else {
         this.loading = false;
-      });
-    } else {
-      this.loading = false;
-    }
+      }
+    });
   }
-
+  
   // triggered when "Add to Cart" is clicked
   addToCart(): void {
     if (this.product) {
