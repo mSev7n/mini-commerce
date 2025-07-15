@@ -24,8 +24,9 @@ export const routes: Routes = [
   }, 
   {
     path: '**',
-    redirectTo: ''  // fallback for unknown routes to redirect to homepage
-  },
+    loadComponent: () =>
+      import('./pages/not-found.component').then(m => m.NotFoundComponent)
+  }
   
   
 ];

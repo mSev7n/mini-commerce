@@ -1,0 +1,5 @@
+/* to center content nicely */
+:host {
+    display: block;
+  }
+  
