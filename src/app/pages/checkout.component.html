@@ -7,18 +7,21 @@
   </div>
 
   <!-- if cart has items, list them -->
-  <div *ngFor="let item of cartItems" class="mb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center border-b pb-4 gap-4">
-    <div class="flex gap-4 items-center w-full">
+  <div
+    *ngFor="let item of cartItems"
+    class="mb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center border-b pb-4 gap-4"
+  >
+    <div class="flex flex-col sm:flex-row gap-4 w-full">
       <!-- product image -->
       <img
         [src]="item.product.image"
         [alt]="item.product.title"
-        class="w-16 h-16 object-cover rounded"
+        class="w-20 h-20 object-cover rounded self-start"
       />
 
       <!-- title and unit price -->
       <div>
-        <p class="font-medium">{{ item.product.title }}</p>
+        <p class="text-base sm:text-lg font-medium">{{ item.product.title }}</p>
         <p class="text-sm text-gray-500">
           ₦{{ item.product.price }} x {{ item.quantity }}
         </p>
@@ -35,31 +38,44 @@
   <div *ngIf="cartItems.length > 0" class="mt-6 border-t pt-4">
 
     <!-- name + email form -->
-    <form (ngSubmit)="placeOrder()" #checkoutForm="ngForm" class="space-y-4 mb-6">
-
+    <form
+      (ngSubmit)="placeOrder()"
+      #checkoutForm="ngForm"
+      class="space-y-4 mb-6"
+    >
       <!-- full name -->
       <div>
-        <label class="block text-sm font-medium mb-1" for="name">Full Name</label>
+        <label
+          class="block text-sm font-medium mb-1"
+          for="name"
+        >
+          Full Name
+        </label>
         <input
           type="text"
           id="name"
           name="name"
           [(ngModel)]="name"
           required
-          class="w-full border px-3 py-2 rounded"
+          class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-indigo-500"
         />
       </div>
 
       <!-- email -->
       <div>
-        <label class="block text-sm font-medium mb-1" for="email">Email Address</label>
+        <label
+          class="block text-sm font-medium mb-1"
+          for="email"
+        >
+          Email Address
+        </label>
         <input
           type="email"
           id="email"
           name="email"
           [(ngModel)]="email"
           required
-          class="w-full border px-3 py-2 rounded"
+          class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-indigo-500"
         />
       </div>
 
@@ -86,3 +102,5 @@
     </form>
   </div>
 </div>
+
+<!-- mSeven -->
