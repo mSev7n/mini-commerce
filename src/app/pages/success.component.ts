@@ -1,20 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-success',
   imports: [CommonModule, RouterModule],
   templateUrl: './success.component.html',
-  styleUrls: ['./success.component.css'] // fixed typo (styleUrl -> styleUrls)
+  styleUrls: ['./success.component.css']
 })
-export class SuccessComponent implements OnInit {
-  orderId: string = '';
+export class SuccessComponent {
+  name = '';
+  email = '';
+  orderId = '';
 
-  ngOnInit(): void {
-    // Generate a simple mock order ID (e.g., MC-000123)
-    const random = Math.floor(Math.random() * 1000000);
-    this.orderId = `MC-${random.toString().padStart(6, '0')}`;
+  constructor(private route: ActivatedRoute) {
+    // get user info from localStorage
+    this.name = localStorage.getItem('user-name') || '';
+    this.email = localStorage.getItem('user-email') || '';
+
+    // get order ID from query param
+    this.route.queryParams.subscribe(params => {
+      this.orderId = params['orderId'] || '';
+    });
   }
 }

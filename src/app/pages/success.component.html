@@ -1,16 +1,15 @@
-<div class="p-6 max-w-xl mx-auto text-center">
-    <h1 class="text-3xl font-bold text-green-600 mb-4">🎉 Order Confirmed!</h1>
-  
-    <p class="text-lg mb-2">Thank you for your purchase.</p>
-    <p class="text-gray-600 mb-6">
-      Your order ID is: <strong>{{ orderId }}</strong>
-    </p>
-  
-    <a
-      routerLink="/"
-      class="inline-block mt-4 px-5 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
-    >
-      ← Back to Shop
-    </a>
-  </div>
-  
+<div class="max-w-xl mx-auto p-6 text-center">
+  <h1 class="text-3xl font-bold text-green-600 mb-4">✅ Order Successful!</h1>
+
+  <p class="text-lg mb-2">Thank you, <strong>{{ name }}</strong>!</p>
+  <p class="text-gray-600 mb-4">Details has been sent to <strong>{{ email }}</strong>.</p>
+
+  <p class="text-md font-semibold mb-6">Your Order ID is: <span class="text-indigo-600">{{ orderId }}</span></p>
+
+  <a
+    routerLink="/"
+    class="inline-block mt-4 px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
+  >
+    Continue Shopping
+  </a>
+</div>
