@@ -1,59 +1,73 @@
-# MiniCommerce
+# MiniCommerce — Angular E-Commerce Demo
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
 
-## Development server
+This is a fully responsive e-commerce frontend built with **Angular**, **Standalone Components**, and **Tailwind CSS** as part of a technical assessment for a Frontend Developer (Angular) role.
 
-To start a local development server, run:
+The app demonstrates practical use of Angular routing, services, reactive state, form handling, and responsive UI design.
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+##  Features
 
-## Code scaffolding
+- ✅ **Product Listing Page** with loading state
+- ✅ **Product Details Page** with "Add to Cart" and "You Might Also Like"
+- ✅ **Cart Page** with quantity updates and removal logic
+- ✅ **Checkout Page** with user form (name & email) and cart summary
+- ✅ **Order Success Page** with generated Order ID and user details
+- ✅ **Responsive Design** (Mobile-first with Tailwind)
+- ✅ **404 Page** for unknown routes
+- ✅ **Cart Persistence** using LocalStorage
+- ✅ **User-Friendly UX** with transition effects, toasts, and accessibility considerations
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🛠 Tech Stack
 
-```bash
-ng generate --help
-```
+- **Angular** with Standalone Components
+- **TypeScript**
+- **RxJS** Observables for cart state
+- **Tailwind CSS** for styling and responsive design
+- **LocalStorage** for state persistence
 
-## Building
+---
 
-To build the project run:
+## Setting Up
 
-```bash
-ng build
-```
+Clone the project and run it locally:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+use the following step by step commands:
 
-## Running unit tests
+    git clone https://github.com/your-username/mini-commerce.git
+    cd mini-commerce
+    npm install
+    ng serve
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Then open http://localhost:4200 in your browser.
 
-```bash
-ng test
-```
+## Testing Checklist
+✅ Add items to cart
+✅ Update and remove cart items
+✅ Go through full checkout flow
+✅ Confirm success screen with Order ID and user data
+✅ Refresh browser — cart and state persist
+✅ Test on mobile and desktop viewports
+✅ Navigate to invalid route and see 404 page
+✅ Submit with and without form data
 
-## Running end-to-end tests
+## Project Structure Overview
 
-For end-to-end (e2e) testing, run:
+src/
+├── app/
+│   ├── pages/              # All standalone pages (home, cart, checkout, etc.)
+│   ├── services/           # Shared services (cartService)
+│   ├── app.routes.ts       # Central route config
+│   └── app.component.ts    # Root component
 
-```bash
-ng e2e
-```
+## Author
+mSeven
+Frontend Developer · Digital Craftsman
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Live Demo (Optional)
+Click here to view live 
