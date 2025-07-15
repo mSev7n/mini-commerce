@@ -1,4 +1,4 @@
-<!-- Back to Shop Button -->
+<!-- back to Shop Button -->
 <div class="mt-4 ml-2">
   <a
     routerLink="/"
@@ -8,9 +8,8 @@
   </a>
 </div>
 
-
-
-<div *ngFor="let item of cartItems" class="flex gap-4 items-center border-b pb-4">
+<!-- cart Item List -->
+<div *ngFor="let item of cartItems" class="flex gap-4 items-center border-b pb-4 mt-4">
   <img
     [src]="item.product.image"
     [alt]="item.product.title"
@@ -22,17 +21,26 @@
     <p class="text-sm text-gray-500">₦{{ item.product.price }} x {{ item.quantity }}</p>
     <p class="text-sm font-semibold mt-1">₦{{ item.product.price * item.quantity }}</p>
 
-    <!-- for quantity to remove input -->
-    <div class="flex items-center gap-2 mt-2">
+    <!-- quantity input and action buttons -->
+    <div class="flex items-center flex-wrap gap-2 mt-2">
+      <!-- quantity input -->
       <input
         type="number"
         min="1"
-        [max]="item.quantity"
         [(ngModel)]="removeQuantities[item.product.slug]"
         class="w-16 px-2 py-1 border rounded text-sm"
+        placeholder="Qty"
       />
 
-      <!-- to remove this quantity button -->
+      <!-- update quantity -->
+      <button
+        (click)="updateQuantity(item)"
+        class="px-2 py-1 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
+      >
+        Update
+      </button>
+
+      <!-- remove specific quantity -->
       <button
         (click)="removeQuantity(item)"
         class="px-2 py-1 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200"
@@ -40,7 +48,7 @@
         Remove quantity
       </button>
 
-      <!-- to remove all button -->
+      <!-- remove all -->
       <button
         (click)="removeAll(item.product.slug)"
         class="px-2 py-1 text-sm bg-red-600 text-white rounded hover:bg-red-700"

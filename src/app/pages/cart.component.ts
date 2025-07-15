@@ -68,4 +68,22 @@ export class CartComponent {
     this.cartService['updateCart'](updatedCart);
     this.removeQuantities[slug] = 1; // reset input
   }
+
+  // Updates quantity directly from the input (like setting 3 or 7)
+  updateQuantity(item: CartItem): void {
+    const slug = item.product.slug;
+    const newQty = this.removeQuantities[slug];
+  
+    if (!newQty || newQty < 1) return;
+  
+    const updatedCart = this.cartItems.map(i => {
+      if (i.product.slug === slug) {
+        return { ...i, quantity: newQty }; // overwrite quantity
+      }
+      return i;
+    });
+  
+    this.cartService['updateCart'](updatedCart);
+  }
+  
 }
