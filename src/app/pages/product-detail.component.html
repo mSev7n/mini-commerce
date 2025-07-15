@@ -16,35 +16,36 @@
   Product added to cart
 </div>
 
-
-<div *ngIf="loading" class="text-center py-10 text-gray-500 text-lg">
+<!-- Loading State -->
+<div *ngIf="loading" class="text-center py-10 text-gray-500 text-base sm:text-lg">
   Loading product details...
 </div>
 
+<!-- Product Detail -->
 <div *ngIf="!loading && product" class="max-w-4xl mx-auto px-4 py-8">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
     <!-- Product image -->
     <img
       [src]="product.image"
       [alt]="product.title"
-      class="w-full h-auto rounded-lg shadow-md"
+      class="w-full h-64 sm:h-80 object-cover rounded-lg shadow-md"
     />
 
     <!-- Product info -->
     <div>
-      <h1 class="text-2xl font-bold mb-2">{{ product.title }}</h1>
-      <p class="text-gray-600 mb-4">{{ product.description }}</p>
-      <p class="text-xl font-bold text-indigo-600 mb-6">${{ product.price }}</p>
+      <h1 class="text-xl sm:text-2xl font-bold mb-2">{{ product.title }}</h1>
+      <p class="text-gray-600 text-sm sm:text-base mb-4">{{ product.description }}</p>
+      <p class="text-lg sm:text-xl font-bold text-indigo-600 mb-6">₦{{ product.price }}</p>
 
-      <!-- Add to Cart button-->
-      <div class="flex items-center gap-4">
+      <!-- Add to Cart button -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
         <input
           type="number"
           min="1"
           [(ngModel)]="quantity"
           class="w-20 px-2 py-1 border rounded-md text-sm focus:outline-none"
         />
-      
+
         <button
           (click)="addToCart()"
           class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
@@ -52,26 +53,24 @@
           Add to Cart
         </button>
       </div>
-      
-
     </div>
   </div>
 </div>
 
 <!-- You Might Also Like Section -->
 <div *ngIf="!loading && product" class="max-w-4xl mx-auto px-4 py-12">
-  <h2 class="text-xl font-semibold mb-4 text-gray-800">You might also like</h2>
+  <h2 class="text-lg sm:text-xl font-semibold mb-4 text-gray-800">You might also like</h2>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
     <a
       *ngFor="let item of relatedProducts"
       [routerLink]="['/product', item.slug]"
-      class="block border rounded-xl overflow-hidden hover:shadow-lg transition-shadow bg-white"
+      class="block border rounded-xl overflow-hidden hover:shadow-md transition-shadow bg-white"
     >
       <img
         [src]="item.image"
         [alt]="item.title"
-        class="w-full h-48 object-cover"
+        class="w-full h-40 sm:h-48 object-cover"
         loading="lazy"
       />
       <div class="p-3">
@@ -84,10 +83,9 @@
   </div>
 </div>
 
-
-<!-- If product not found -->
-<div *ngIf="!loading && !product" class="text-center py-20 text-gray-500 text-lg">
+<!-- Product not found -->
+<div *ngIf="!loading && !product" class="text-center py-20 text-gray-500 text-base sm:text-lg">
   Product not found.
 </div>
 
-<!--mSeven-->
+<!-- mSeven -->
