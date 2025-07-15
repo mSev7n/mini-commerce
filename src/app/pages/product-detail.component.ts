@@ -12,7 +12,7 @@ import { ProductService, Product } from '../services/product.service';
 })
 export class ProductDetailComponent implements OnInit {
   product: Product | undefined;
-  related: Product[] = [];
+  relatedProducts: Product[] = [];
   loading = true;
 
   constructor(
@@ -28,12 +28,12 @@ export class ProductDetailComponent implements OnInit {
       // to use the service to find the product by slug
       this.product = this.productService.getProductBySlug(slug);
 
-      // get 4 other random products for "You might also like" section
+      // get 4 other random products for the "You Might Also Like" section
       this.productService.getProducts().subscribe(data => {
-        this.related = data
+        this.relatedProducts = data
           .filter(p => p.slug !== slug) // exclude the current product
           .sort(() => 0.5 - Math.random()) // shuffle
-          .slice(0, 4); // take first 4
+          .slice(0, 4); // take first 4 suggestions
 
         this.loading = false; // stop loading *after* we get the data
       });

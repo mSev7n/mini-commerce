@@ -1,67 +1,74 @@
-<!-- back to homepage link -->
-<div class="px-4 pt-6">
-  <a routerLink="/" class="text-indigo-600 hover:underline text-sm">
-    &larr; Back to Home
+<!-- Back Button -->
+<div class="max-w-4xl mx-auto px-4 pt-6">
+  <a
+    routerLink="/"
+    class="inline-block text-sm text-indigo-600 hover:underline"
+  >
+    ← Back to Shop
   </a>
 </div>
 
+
+
 <div *ngIf="loading" class="text-center py-10 text-gray-500 text-lg">
-    Loading product details...
-  </div>
-  
-  <div *ngIf="!loading && product" class="max-w-4xl mx-auto px-4 py-8" style="height: 50vh;">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start h-full">
-      <!-- product image -->
-      <img
-        [src]="product.image"
-        [alt]="product.title"
-        class="w-full h-full object-contain rounded-lg shadow-md"
-      />
-  
-      <!-- product info -->
-      <div class="flex flex-col justify-between h-full">
-        <h1 class="text-2xl font-bold mb-2">{{ product.title }}</h1>
-        <p class="text-gray-600 mb-4">{{ product.description }}</p>
-        <p class="text-xl font-bold text-indigo-600 mb-6">${{ product.price }}</p>
-  
-        <!-- add to Cart button -->
-        <button
-          class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
-        >
-          Add to Cart
-        </button>
-      </div>
+  Loading product details...
+</div>
+
+<div *ngIf="!loading && product" class="max-w-4xl mx-auto px-4 py-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+    <!-- Product image -->
+    <img
+      [src]="product.image"
+      [alt]="product.title"
+      class="w-full h-auto rounded-lg shadow-md"
+    />
+
+    <!-- Product info -->
+    <div>
+      <h1 class="text-2xl font-bold mb-2">{{ product.title }}</h1>
+      <p class="text-gray-600 mb-4">{{ product.description }}</p>
+      <p class="text-xl font-bold text-indigo-600 mb-6">${{ product.price }}</p>
+
+      <!-- Add to Cart button (cart logic coming next!) -->
+      <button
+        class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
+      >
+        Add to Cart
+      </button>
     </div>
   </div>
+</div>
 
-  <!-- Suggested Items -->
-<div *ngIf="related.length > 0" class="max-w-6xl mx-auto px-4 pb-16">
+<!-- You Might Also Like Section -->
+<div *ngIf="!loading && product" class="max-w-4xl mx-auto px-4 py-12">
   <h2 class="text-xl font-semibold mb-4 text-gray-800">You might also like</h2>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
     <a
-      *ngFor="let item of related"
+      *ngFor="let item of relatedProducts"
       [routerLink]="['/product', item.slug]"
-      class="block border rounded-xl overflow-hidden hover:shadow-md transition-shadow bg-white"
+      class="block border rounded-xl overflow-hidden hover:shadow-lg transition-shadow bg-white"
     >
       <img
         [src]="item.image"
         [alt]="item.title"
         class="w-full h-48 object-cover"
+        loading="lazy"
       />
       <div class="p-3">
-        <h3 class="text-sm font-semibold">{{ item.title }}</h3>
-        <p class="text-sm text-gray-500">${{ item.price }}</p>
+        <h3 class="text-sm font-semibold text-gray-800">{{ item.title }}</h3>
+        <p class="text-xs text-gray-500">
+          {{ item.description.split(' ').slice(0, 12).join(' ') + '...' }}
+        </p>
       </div>
     </a>
   </div>
 </div>
 
-  
-  <!-- if product not found -->
-  <div *ngIf="!loading && !product" class="text-center py-20 text-gray-500 text-lg">
-    Product not found.
-  </div>
 
-  <!--mSevens-->
-  
+<!-- If product not found -->
+<div *ngIf="!loading && !product" class="text-center py-20 text-gray-500 text-lg">
+  Product not found.
+</div>
+
+<!--mSeven-->
