@@ -32,10 +32,15 @@ export class CheckoutComponent {
     this.total = this.subtotal;
   }
 
-  // place order: clears cart and redirects to success page
+  // place order: clears cart and redirects to success page with a random order ID
   placeOrder(): void {
     this.cartService.clearCart();
-    this.router.navigate(['/success']);
+
+    // generate a random 6-digit order ID
+    const orderId = Math.floor(100000 + Math.random() * 900000);
+
+    // go to the success page and pass the orderId in the URL
+    this.router.navigate(['/success'], { queryParams: { orderId } });
   }
 }
 
