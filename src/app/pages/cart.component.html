@@ -1,4 +1,13 @@
 <div class="p-4 max-w-4xl mx-auto">
+
+  <a
+  routerLink="/"
+  class="inline-block mb-4 text-indigo-600 hover:underline font-medium"
+  >
+  ← Back to Shop
+  </a>
+
+  
   <h1 class="text-2xl font-bold mb-4">Your Cart</h1>
 
   <!-- show message when cart is empty -->
@@ -11,7 +20,7 @@
   <div *ngIf="cartItems.length > 0" class="space-y-6">
     <div *ngFor="let item of cartItems" class="flex gap-4 items-center border-b pb-4">
       <img
-        [src]="'assets/images/' + item.product.image"
+        [src]="'./assets/images/' + item.product.image"
         [alt]="item.product.title"
         class="w-20 h-20 object-cover rounded"
       />
