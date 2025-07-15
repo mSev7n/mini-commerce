@@ -11,9 +11,15 @@ export const routes: Routes = [
     component: ProductDetailComponent 
   },
   {
+    path: 'cart',
+    loadComponent: () => import('./pages/cart.component').then(m => m.CartComponent)
+  },
+  {
     path: '**',
     redirectTo: ''  // fallback for unknown routes to redirect to homepage
-  }
+  },
+  
+  
 ];
 
 // <--mSeven-->
