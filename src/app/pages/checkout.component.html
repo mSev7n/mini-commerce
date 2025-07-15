@@ -31,25 +31,58 @@
     </div>
   </div>
 
-  <!-- totals + place Order -->
-  <div *ngIf="cartItems.length > 0" class="mt-6 border-t pt-4 text-right">
-    <p class="mb-2">
-      Subtotal:
-      <strong>₦{{ subtotal.toFixed(2) }}</strong>
-    </p>
-    <p class="mb-4">
-      Total:
-      <strong>₦{{ total.toFixed(2) }}</strong>
-    </p>
+  <!-- totals + form + place Order -->
+  <div *ngIf="cartItems.length > 0" class="mt-6 border-t pt-4">
 
-    <!-- place Order Button -->
-    <button
-      (click)="placeOrder()"
-      class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
-    >
-      Place Order →
-    </button>
+    <!-- name + email form -->
+    <form (ngSubmit)="placeOrder()" #checkoutForm="ngForm" class="space-y-4 mb-6">
+
+      <!-- full name -->
+      <div>
+        <label class="block text-sm font-medium mb-1" for="name">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          [(ngModel)]="name"
+          required
+          class="w-full border px-3 py-2 rounded"
+        />
+      </div>
+
+      <!-- email -->
+      <div>
+        <label class="block text-sm font-medium mb-1" for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="email"
+          required
+          class="w-full border px-3 py-2 rounded"
+        />
+      </div>
+
+      <!-- totals -->
+      <div class="text-right border-t pt-4">
+        <p class="mb-2">
+          Subtotal:
+          <strong>₦{{ subtotal.toFixed(2) }}</strong>
+        </p>
+        <p class="mb-4">
+          Total:
+          <strong>₦{{ total.toFixed(2) }}</strong>
+        </p>
+
+        <!-- place Order Button -->
+        <button
+          type="submit"
+          [disabled]="!checkoutForm.form.valid"
+          class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+        >
+          Place Order →
+        </button>
+      </div>
+    </form>
   </div>
 </div>
-
-<!--mSeven-->
