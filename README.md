@@ -56,18 +56,10 @@ Then open http://localhost:4200 in your browser.
 ✅ Navigate to invalid route and see 404 page
 ✅ Submit with and without form data
 
-## Project Structure Overview
-
-src/
-├── app/
-│   ├── pages/              # All standalone pages (home, cart, checkout, etc.)
-│   ├── services/           # Shared services (cartService)
-│   ├── app.routes.ts       # Central route config
-│   └── app.component.ts    # Root component
 
 ## Author
 mSeven
 Frontend Developer · Digital Craftsman
 
-## Live Demo (Optional)
-Click here to view live 
+## Live Demo
+**[Click here to view live](https://msev7n.github.io/mini-commerce/)**
