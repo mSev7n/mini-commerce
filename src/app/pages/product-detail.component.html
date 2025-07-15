@@ -8,6 +8,13 @@
   </a>
 </div>
 
+<!-- Toast notification -->
+<div
+  *ngIf="showToast"
+  class="fixed top-4 right-4 bg-green-600 text-white text-sm px-4 py-2 rounded-lg shadow-lg z-50 animate-fade-in-out"
+>
+  Product added to cart
+</div>
 
 
 <div *ngIf="loading" class="text-center py-10 text-gray-500 text-lg">
@@ -29,12 +36,24 @@
       <p class="text-gray-600 mb-4">{{ product.description }}</p>
       <p class="text-xl font-bold text-indigo-600 mb-6">${{ product.price }}</p>
 
-      <!-- Add to Cart button (cart logic coming next!) -->
-      <button
-        class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
-      >
-        Add to Cart
-      </button>
+      <!-- Add to Cart button-->
+      <div class="flex items-center gap-4">
+        <input
+          type="number"
+          min="1"
+          [(ngModel)]="quantity"
+          class="w-20 px-2 py-1 border rounded-md text-sm focus:outline-none"
+        />
+      
+        <button
+          (click)="addToCart()"
+          class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
+        >
+          Add to Cart
+        </button>
+      </div>
+      
+
     </div>
   </div>
 </div>
