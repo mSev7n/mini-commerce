@@ -1,18 +1,25 @@
+<!-- back to homepage link -->
+<div class="px-4 pt-6">
+  <a routerLink="/" class="text-indigo-600 hover:underline text-sm">
+    &larr; Back to Home
+  </a>
+</div>
+
 <div *ngIf="loading" class="text-center py-10 text-gray-500 text-lg">
     Loading product details...
   </div>
   
-  <div *ngIf="!loading && product" class="max-w-4xl mx-auto px-4 py-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+  <div *ngIf="!loading && product" class="max-w-4xl mx-auto px-4 py-8" style="height: 50vh;">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start h-full">
       <!-- product image -->
       <img
         [src]="product.image"
         [alt]="product.title"
-        class="w-full h-auto rounded-lg shadow-md"
+        class="w-full h-full object-contain rounded-lg shadow-md"
       />
   
       <!-- product info -->
-      <div>
+      <div class="flex flex-col justify-between h-full">
         <h1 class="text-2xl font-bold mb-2">{{ product.title }}</h1>
         <p class="text-gray-600 mb-4">{{ product.description }}</p>
         <p class="text-xl font-bold text-indigo-600 mb-6">${{ product.price }}</p>
@@ -26,6 +33,30 @@
       </div>
     </div>
   </div>
+
+  <!-- Suggested Items -->
+<div *ngIf="related.length > 0" class="max-w-6xl mx-auto px-4 pb-16">
+  <h2 class="text-xl font-semibold mb-4 text-gray-800">You might also like</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    <a
+      *ngFor="let item of related"
+      [routerLink]="['/product', item.slug]"
+      class="block border rounded-xl overflow-hidden hover:shadow-md transition-shadow bg-white"
+    >
+      <img
+        [src]="item.image"
+        [alt]="item.title"
+        class="w-full h-48 object-cover"
+      />
+      <div class="p-3">
+        <h3 class="text-sm font-semibold">{{ item.title }}</h3>
+        <p class="text-sm text-gray-500">${{ item.price }}</p>
+      </div>
+    </a>
+  </div>
+</div>
+
   
   <!-- if product not found -->
   <div *ngIf="!loading && !product" class="text-center py-20 text-gray-500 text-lg">
