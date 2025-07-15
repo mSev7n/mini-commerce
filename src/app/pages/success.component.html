@@ -1,10 +1,20 @@
 <div class="max-w-xl mx-auto p-6 text-center">
-  <h1 class="text-3xl font-bold text-green-600 mb-4">✅ Order Successful!</h1>
+  <h1 class="text-2xl sm:text-3xl font-bold text-green-600 mb-4">
+    ✅ Order Successful!
+  </h1>
 
-  <p class="text-lg mb-2">Thank you, <strong>{{ name }}</strong>!</p>
-  <p class="text-gray-600 mb-4">Details has been sent to <strong>{{ email }}</strong>.</p>
+  <p class="text-base sm:text-lg mb-2">
+    Thank you, <strong>{{ name }}</strong>!
+  </p>
 
-  <p class="text-md font-semibold mb-6">Your Order ID is: <span class="text-indigo-600">{{ orderId }}</span></p>
+  <p class="text-sm sm:text-base text-gray-600 mb-4">
+    Details have been sent to <strong>{{ email }}</strong>.
+  </p>
+
+  <p class="text-sm sm:text-md font-semibold mb-6">
+    Your Order ID is:
+    <span class="text-indigo-600">{{ orderId }}</span>
+  </p>
 
   <a
     routerLink="/"
