@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'; // ✅ needed for ngModel
@@ -13,17 +13,20 @@ import { CartService } from '../services/cart.service'; // cart service
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
+  private route = inject(ActivatedRoute);
+  private productService = inject(ProductService);
+  private cartService = inject(CartService);
+
   product: Product | undefined;
   relatedProducts: Product[] = [];
   loading = true;
   showToast = false; // controls popup
-  quantity = 1; // default number to add
+  quantity = 1;
 
-  constructor(
-    private route: ActivatedRoute, // gets route param like :slug
-    private productService: ProductService,
-    private cartService: CartService
-  ) {}
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]); // default number to add
+
+  constructor() {}
 
   ngOnInit(): void {
     // Subscribe to route params so this re-runs on every product change

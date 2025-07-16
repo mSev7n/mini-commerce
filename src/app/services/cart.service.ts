@@ -21,7 +21,6 @@ export class CartService {
   // Expose as observable so components can subscribe
   cart$ = this.cartSubject.asObservable();
 
-  constructor() {}
 
   // Add product to cart or increase quantity
   addToCart(product: Product): void {

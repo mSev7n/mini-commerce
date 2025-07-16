@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { CartService, CartItem } from '../services/cart.service';
@@ -12,6 +12,9 @@ import { FormsModule } from '@angular/forms'; // needed for ngModel binding
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
+  private cartService = inject(CartService);
+  private router = inject(Router);
+
   cartItems: CartItem[] = [];
   subtotal = 0;
   total = 0;
@@ -20,7 +23,10 @@ export class CheckoutComponent {
   name = '';
   email = '';
 
-  constructor(private cartService: CartService, private router: Router) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
     // subscribe to cart data so it updates if anything changes
     this.cartService.cart$.subscribe(items => {
       this.cartItems = items;

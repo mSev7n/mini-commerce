@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { CartService, CartItem } from '../services/cart.service';
@@ -12,15 +12,20 @@ import { FormsModule } from '@angular/forms'; // <-- needed for ngModel
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
+  private cartService = inject(CartService);
+
   cartItems: CartItem[] = [];
 
   subtotal = 0;
   total = 0;
 
   // This object stores quantity input values per product (slug as key)
-  removeQuantities: { [slug: string]: number } = {};
+  removeQuantities: Record<string, number> = {};
 
-  constructor(private cartService: CartService) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
     // Subscribe to changes from the cart service
     this.cartService.cart$.subscribe(items => {
       this.cartItems = items;

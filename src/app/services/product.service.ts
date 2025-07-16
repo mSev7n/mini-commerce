@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -17,10 +17,11 @@ export interface Product {
   providedIn: 'root'
 })
 export class ProductService {
+  // ✅ Using inject() instead of constructor injection
+  private http = inject(HttpClient);
+
   // holds current list of products, so components can subscribe to this.
   private products$ = new BehaviorSubject<Product[]>([]);
-
-  constructor(private http: HttpClient) {}
 
   // loads products either from localStorage or the JSON file
   getProducts(): Observable<Product[]> {
@@ -51,4 +52,3 @@ export class ProductService {
 }
 
 // <--mSeven-->
-

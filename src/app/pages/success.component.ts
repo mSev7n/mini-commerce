@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 
@@ -10,11 +10,16 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
   styleUrls: ['./success.component.css']
 })
 export class SuccessComponent {
+  private route = inject(ActivatedRoute);
+
   name = '';
   email = '';
   orderId = '';
 
-  constructor(private route: ActivatedRoute) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
     // get user info from localStorage
     this.name = localStorage.getItem('user-name') || '';
     this.email = localStorage.getItem('user-email') || '';
