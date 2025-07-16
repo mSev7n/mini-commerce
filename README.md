@@ -56,6 +56,38 @@ Then open http://localhost:4200 in your browser.
 ✅ Navigate to invalid route and see 404 page
 ✅ Submit with and without form data
 
+---
+
+
+## Test Coverage
+This project includes unit tests for key components and services using Angular’s built-in testing framework (Karma + Jasmine).
+
+## What’s tested:
+-CartService – adding, clearing, and retrieving cart items
+
+-ProductService – service instantiation and product fetching
+
+-AppComponent – basic render and structure checks
+
+-SuccessComponent – creation and subscription logic
+
+-Other Pages (Home, Product Detail, Cart, NotFound) – creation tests and route handling
+
+## Setup for Testing:
+Ensure you have a Chromium browser installed and accessible. If not, run:
+
+export CHROME_BIN=$(which chromium)
+
+
+## Run tests:
+run:
+
+npm run test
+
+## All tests should pass:
+
+TOTAL: 11 SUCCESS
+
 
 ## Author
 mSeven
