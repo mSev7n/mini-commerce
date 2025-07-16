@@ -94,4 +94,4 @@ mSeven
 Frontend Developer · Digital Craftsman
 
 ## Live Demo
-**[Click here to view live](https://msev7n.github.io/mini-commerce/)**
+**[Click here to view live](https://m7-mini-commerce.vercel.app/)**
